@@ -18,6 +18,13 @@ _global_script_class_icons={
 config/name="Piratas"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=512
+window/size/height=272
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
