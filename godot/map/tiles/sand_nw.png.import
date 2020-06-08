@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/galeon.png-a37d11a14b52dfce7714a7aac3f12ac0.stex"
+path="res://.import/sand_nw.png-043b963a82574531ed95790a8a6eaa5b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://galeon/galeon.png"
-dest_files=[ "res://.import/galeon.png-a37d11a14b52dfce7714a7aac3f12ac0.stex" ]
+source_file="res://map/tiles/sand_nw.png"
+dest_files=[ "res://.import/sand_nw.png-043b963a82574531ed95790a8a6eaa5b.stex" ]
 
 [params]
 

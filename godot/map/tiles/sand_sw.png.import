@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile-land.png-48c3765399152ef1f6e54db1a7ee055d.stex"
+path="res://.import/sand_sw.png-8010aae22329218c4cebcbec6a7f11a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/tile-land.png"
-dest_files=[ "res://.import/tile-land.png-48c3765399152ef1f6e54db1a7ee055d.stex" ]
+source_file="res://map/tiles/sand_sw.png"
+dest_files=[ "res://.import/sand_sw.png-8010aae22329218c4cebcbec6a7f11a7.stex" ]
 
 [params]
 
