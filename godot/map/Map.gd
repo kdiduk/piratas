@@ -9,6 +9,7 @@ var player_cell = Vector2(1, 1)
 var map_rect: Rect2
 
 func _ready():
+	get_tree().get_root().connect("size_changed", self, "_update_zoom")
 	_update_zoom()
 
 func _update_player_pos():
