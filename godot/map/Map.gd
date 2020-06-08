@@ -6,18 +6,18 @@ onready var terrain_map = $TerrainMap
 onready var camera = $Camera2D
 var zoom_factor = 2
 var player_cell = Vector2(1, 1)
-
+var map_rect: Rect2
 
 func _ready():
 	_update_zoom()
 
 func _update_player_pos():
-	player.position = sea_map.map_to_world(player_cell) * zoom_factor
-	player.position += Vector2(zoom_factor * 16, zoom_factor * 16)
+	player.position = sea_map.map_to_world(player_cell)
+	player.position += Vector2(16, 16)
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseButton and event.is_pressed():
-		var click_pos = get_global_mouse_position() / zoom_factor
+		var click_pos = get_global_mouse_position()
 		var map_pos = sea_map.world_to_map(click_pos)
 		print("Click pos: ", click_pos)
 		print("Map pos: ", map_pos)
@@ -38,15 +38,16 @@ func _process(_delta):
 		offset.y += 8
 
 	offset.x = clamp(camera.offset.x + offset.x,
-			-120, 2048)
+			map_rect.position.x, map_rect.end.x)
 	offset.y = clamp(camera.offset.y + offset.y,
-			-40, 1440)
+			map_rect.position.y, map_rect.end.y)
 	camera.offset = offset
 
 func _update_zoom():
-	sea_map.scale = Vector2(zoom_factor, zoom_factor)
-	terrain_map.scale = Vector2(zoom_factor, zoom_factor)
-	player.scale = Vector2(zoom_factor, zoom_factor)
+	camera.zoom = Vector2(1.0 / zoom_factor, 1.0 / zoom_factor)
+	map_rect = Rect2(0, 0,
+		sea_map.get_used_rect().end.x * sea_map.cell_size.x - get_viewport_rect().size.x / zoom_factor,
+		sea_map.get_used_rect().end.y * sea_map.cell_size.y - get_viewport_rect().size.y / zoom_factor)
 	_update_player_pos()
 
 func _on_zoom_in():
